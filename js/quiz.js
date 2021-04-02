@@ -1,3 +1,7 @@
+/* Dit zijn de vragen van de quiz
+* Dit is een lijst van javascript objecten
+* Je kan zelf de vragen aanpassen of vragen toevoegen. Let dan wel goed op de "" en de komma's
+*/
 var mijnVragen = [
   {
     vraag: "Wat is mijn naam ?",
@@ -20,7 +24,7 @@ var mijnVragen = [
 ];
 
 /* Hier stoppen we verschillende blokken uit de HTML pagina in variabelen zodat we ze in javascript 
-* zetten
+* kunnen veranderen en weer terug op in de html pagina kunnen zetten
 */
 var vragenBlok = document.getElementById("vragen");
 var antwoordenBlok = document.getElementById("antwoorden");
