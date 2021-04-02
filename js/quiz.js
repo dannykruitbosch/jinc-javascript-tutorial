@@ -19,13 +19,24 @@ var mijnVragen = [
   }
 ];
 
+/* Hier stoppen we verschillende blokken uit de HTML pagina in variabelen zodat we ze in javascript 
+* zetten
+*/
 var vragenBlok = document.getElementById("vragen");
 var antwoordenBlok = document.getElementById("antwoorden");
 var submitButton = document.getElementById("submit");
 
+// Hier wordt de quiz aangeroepen vanaf de html pagina
 generateQuiz(mijnVragen, vragenBlok, antwoordenBlok, submitButton);
 
+/*
+* Deze functie is de "hoofdfunctie" die de quiz stuurt 
+*/
 function generateQuiz(mijnVragen, vragenBlok, antwoordenBlok, submitButton) {
+  
+  /*
+  * Deze functie zorgt ervoor dat de vragen en antwoorden op het scherm worden getoont
+  */
   function toonVragen(mijnVragen, vragenBlok) {
     // we'll need a place to store the output and the answer choices
 
@@ -72,7 +83,10 @@ function generateQuiz(mijnVragen, vragenBlok, antwoordenBlok, submitButton) {
     vragenBlok.innerHTML = output.join("");
   }
 
-  function toonAntwoorden(mijnVragen, vragenBlok, antwoordenBlok) {
+  /*
+  * Deze functie zorgt ervoor dat alle antwoorden worden "gelezen" van het scherm en controleert hoeveel er goed zijn beantwoord.
+  */
+  function verzamelAntwoorden(mijnVragen, vragenBlok, antwoordenBlok) {
     // we verzamelen alle antwoorden van het scherm
     var alleAntwoorden = vragenBlok.querySelectorAll(".antwoorden");
 
@@ -115,6 +129,6 @@ function generateQuiz(mijnVragen, vragenBlok, antwoordenBlok, submitButton) {
 
   // En laat zien hoeveel je er goed hebt als je op de "Hoe goed ken je mij" button klikt
   submitButton.onclick = function() {
-    toonAntwoorden(mijnVragen, vragenBlok, antwoordenBlok);
+    verzamelAntwoorden(mijnVragen, vragenBlok, antwoordenBlok);
   };
 }
