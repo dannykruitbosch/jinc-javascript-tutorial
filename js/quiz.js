@@ -29,19 +29,23 @@ var mijnVragen = [
   
     function toonVragen(mijnVragen, vragenBlok){
       // we'll need a place to store the output and the answer choices
+      
+      // we hebben een variabele nodig om alle vragen en antwoorden in te bewaren zodat we die later op het scherm kunnen 'printen'
       var output = [];
+      
+      // en een variabele voor alle antwoorden
       var antwoorden;
   
-      // for each vraag...
+      // voor elke vraag...
       for(var i=0; i < mijnVragen.length; i++){
         
-        // first reset the list of antwoorden
+        // maken we eerst de lijst van antwoorden leeg
         antwoorden = [];
   
-        // for each available answer...
+        // en voor elk antwoord bij een vraag uit de vragenlijst ...
         for(letter in mijnVragen[i].antwoorden){
   
-          // ...add an html radio button
+          // ... voegen we een html radio button toe (dat is het rondje waar je op kan klikken)
           antwoorden.push(
             '<label>'
               + '<input type="radio" name="vraag'+i+'" value="'+letter+'">'
@@ -51,45 +55,47 @@ var mijnVragen = [
           );
         }
   
-        // add this vraag and its antwoorden to the output
+        // en voegen we de vraag met alle antwoorden toe aan de output
         output.push(
           '<div class="vraag">' + mijnVragen[i].vraag + '</div>'
           + '<div class="antwoorden">' + antwoorden.join('') + '</div>'
         );
       }
   
-      // finally combine our output list into one string of html and put it on the page
+      // tot slot maken we een lange "html" string zodat we dat op het scherm kunnen printen
       vragenBlok.innerHTML = output.join('');
     }
   
   
     function toonAntwoorden(mijnVragen, vragenBlok, antwoordenBlok){
       
-      // gather answer containers from our quiz
-      var answerContainers = vragenBlok.querySelectorAll('.antwoorden');
+      // we verzamelen alle antwoorden van het scherm
+      var alleAntwoorden = vragenBlok.querySelectorAll('.antwoorden');
       
-      // keep track of user's antwoorden
-      var userAnswer = '';
+      // en houden de antwoorden die je geeft bij
+      var gegevenAntwoord = '';
+      
+      // en het aantal juist gegeven antwoorden houden we ook bij
       var numCorrect = 0;
       
-      // for each vraag...
+      // voor elke vraag...
       for(var i=0; i<mijnVragen.length; i++){
   
-        // find selected answer
-        userAnswer = (answerContainers[i].querySelector('input[name=vraag'+i+']:checked')||{}).value;
+        // zoek het gegeven antwoord op het scherm
+        gegevenAntwoord = (alleAntwoorden[i].querySelector('input[name=vraag'+i+']:checked')||{}).value;
         
-        // if answer is correct
-        if(userAnswer===mijnVragen[i].juisteAntwoord){
-          // add to the number of correct antwoorden
+        // als het antwoord juist is
+        if(gegevenAntwoord===mijnVragen[i].juisteAntwoord){
+          // tel 
           numCorrect++;
           
           // color the antwoorden green
-          answerContainers[i].style.color = 'lightgreen';
+          alleAntwoorden[i].style.color = 'lightgreen';
         }
         // if answer is wrong or blank
         else{
           // color the antwoorden red
-          answerContainers[i].style.color = 'red';
+          alleAntwoorden[i].style.color = 'red';
         }
       }
   

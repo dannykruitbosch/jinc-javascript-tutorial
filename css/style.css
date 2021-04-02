@@ -3,10 +3,11 @@ body{
   font-family: sans-serif;
   color: #333;
 }
-.question{
+.vraag{
   font-weight: 600;
+  margin-bottom: 10px;
 }
-.answers {
+.antwoorden {
     margin-bottom: 20px;
 }
 #submit{
