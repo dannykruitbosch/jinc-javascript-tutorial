@@ -127,15 +127,17 @@ function generateQuiz(mijnVragen, vragenBlok, antwoordenBlok, submitButton) {
     // Laat zien hoeveel vragen goed zijn beantwoord
     antwoordenBlok.innerHTML =
       "Je hebt " + aantalGoed + " van de " + mijnVragen.length + " vragen goed!";
+    
+    extraFunctie(winner, aantalGoed);
   }
   
   // Hier kun je code toevoegen die nog iets extra's doet als je op de knop klikt om de antwoorden te laten zien.
-  function winner(aantalGoed) {
-        if(aantalGoed > 1) {
-      winner.innerHTML = "winnaar"
+  function extraFunctie(winner, aantalGoed) {
+    if(aantalGoed > 1) {
+      winner.innerHTML = "<img src='https://cdn.glitch.com/0995224d-ef7a-457f-ab52-ee411d5fed4e%2F1st.gif?v=1617781190825' />"
     }
     else {
-      winner.innerHTML = "verliezer"
+      winner.innerHTML = "<img src='https://cdn.glitch.com/0995224d-ef7a-457f-ab52-ee411d5fed4e%2Fgameover.gif?v=1617781279336' />"
     }
   }
   
