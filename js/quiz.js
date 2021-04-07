@@ -127,12 +127,17 @@ function generateQuiz(mijnVragen, vragenBlok, antwoordenBlok, submitButton) {
     // Laat zien hoeveel vragen goed zijn beantwoord
     antwoordenBlok.innerHTML =
       "Je hebt " + aantalGoed + " van de " + mijnVragen.length + " vragen goed!";
-    
-
-    // Hier kun je code toevoegen die nog iets extra's doet als je op de knop klikt om de antwoorden te laten zien.
   }
   
-  f
+  // Hier kun je code toevoegen die nog iets extra's doet als je op de knop klikt om de antwoorden te laten zien.
+  function winner(aantalGoed) {
+        if(aantalGoed > 1) {
+      winner.innerHTML = "winnaar"
+    }
+    else {
+      winner.innerHTML = "verliezer"
+    }
+  }
   
 
   // Laat alle vragen en antwoorden zien bij het openen van de pagina
