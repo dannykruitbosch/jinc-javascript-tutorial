@@ -29,6 +29,7 @@ var mijnVragen = [
 var vragenBlok = document.getElementById("vragen");
 var antwoordenBlok = document.getElementById("antwoorden");
 var submitButton = document.getElementById("submit");
+var winner = document.getElementById("winner");
 
 // Hier wordt de quiz aangeroepen vanaf de html pagina
 generateQuiz(mijnVragen, vragenBlok, antwoordenBlok, submitButton);
@@ -122,20 +123,16 @@ function generateQuiz(mijnVragen, vragenBlok, antwoordenBlok, submitButton) {
         alleAntwoorden[i].style.color = "red";
       }
     }
-    
-        // Hier kun je code toevoegen die nog iets extra's doet als je op de knop klikt om de antwoorden te laten zien.
-    if (aantalGoed < 2) {
-      document.getElementById("main").style.background-color = "red";
-    } else {
-      document.getElementById("main").style.background-color = "yellow";
-    }
 
     // Laat zien hoeveel vragen goed zijn beantwoord
     antwoordenBlok.innerHTML =
       "Je hebt " + aantalGoed + " van de " + mijnVragen.length + " vragen goed!";
     
 
+    // Hier kun je code toevoegen die nog iets extra's doet als je op de knop klikt om de antwoorden te laten zien.
   }
+  
+  f
   
 
   // Laat alle vragen en antwoorden zien bij het openen van de pagina
