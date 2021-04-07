@@ -122,11 +122,21 @@ function generateQuiz(mijnVragen, vragenBlok, antwoordenBlok, submitButton) {
         alleAntwoorden[i].style.color = "red";
       }
     }
+    
+        // Hier kun je code toevoegen die nog iets extra's doet als je op de knop klikt om de antwoorden te laten zien.
+    if (aantalGoed < 2) {
+      document.getElementById("main").style.background-color = "red";
+    } else {
+      document.getElementById("main").style.background-color = "yellow";
+    }
 
     // Laat zien hoeveel vragen goed zijn beantwoord
     antwoordenBlok.innerHTML =
       "Je hebt " + aantalGoed + " van de " + mijnVragen.length + " vragen goed!";
+    
+
   }
+  
 
   // Laat alle vragen en antwoorden zien bij het openen van de pagina
   toonVragen(mijnVragen, vragenBlok);
